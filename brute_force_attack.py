@@ -1,3 +1,4 @@
+import time
 import random
 
 
@@ -79,7 +80,15 @@ def decrypt_message(ciphertext, e, n):
 
 if __name__ == '__main__':
     # Test the decrypt function
-    ciphertext = [115, 298, 93, 187, 63, 270, 71, 190, 79]
-    e = 277
-    n = 323
-    print(decrypt_message(ciphertext, e, n))
+    print("Brute-Force Attack of RSA")
+    ciphertext = input("Enter the cipher text: ")
+    ciphertext = ciphertext.replace("\n", "").split(", ")
+    ciphertext = [int(s) for s in ciphertext]
+    e = int(input("Enter the public key e: "))
+    n = int(input("Enter the public key n: "))
+    start = time.time()
+    msg = decrypt_message(ciphertext, e, n)
+    end = time.time()
+    print(end - start)
+    print("Successfully crack the message, the original message:")
+    print(msg)
