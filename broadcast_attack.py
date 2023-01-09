@@ -66,7 +66,7 @@ n = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17,
 c = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20]
 
 
-def crack(n, c):
+def broadcast_attack(n, c):
     p, q, d, m = 0, 0, 0, 0
     for i in range(len(n)):
         for j in range(len(n)):

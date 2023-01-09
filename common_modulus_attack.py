@@ -1,7 +1,7 @@
 from utils import *
 
 
-def crack(c1, c2, e1, e2, n):
+def common_modulus_attack(c1, c2, e1, e2, n):
     s1, s2, _ = extended_euclidean(e1, e2)
     if s1 < 0:
         s1 = -s1
