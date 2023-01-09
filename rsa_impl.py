@@ -1,4 +1,5 @@
 import random
+from prime_generator import Generator
 
 
 def gcd(a, b):
@@ -62,9 +63,13 @@ def decrypt(pk, ciphertext):
 
 if __name__ == '__main__':
     print("RSA Encryption and Decryption")
-    p = int(input("Enter a prime number: "))
-    q = int(input("Enter another prime number (Not one you entered above): "))
+    g = Generator()
+    p = g.generate()
+    q = g.generate()
+    while p == q:
+        p, q = g.generate(), g.generate()
     print("Generating your public/private keypairs now . . .")
+    print("Two prime numbers: ", p, q)
     public, private = generate_keypair(p, q)
     print("Your public key is ", public, " and your private key is ", private)
     message = input("Enter a message to encrypt with your public key: ")
