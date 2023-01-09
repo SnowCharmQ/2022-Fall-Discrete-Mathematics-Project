@@ -37,8 +37,7 @@ def decrypt(pk, ciphertext):
 if __name__ == '__main__':
     print("RSA Encryption and Decryption")
     g = Generator()
-    p = g.generate()
-    q = g.generate()
+    p, q = g.generate(), g.generate()
     while p == q:
         p, q = g.generate(), g.generate()
     print("Generating your public/private keypairs now . . .")

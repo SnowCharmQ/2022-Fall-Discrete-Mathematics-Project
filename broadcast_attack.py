@@ -76,4 +76,4 @@ def broadcast_attack(n, c):
                     q = n[i] // p
                     d = find_mod_inverse(e, (p - 1) * (q - 1))
                     m = pow(c[i], d, n[i])
-    return p, q, d, chr(m)
+    return chr(m)
