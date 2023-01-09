@@ -13,10 +13,8 @@ def find_mod_inverse(a, m):
     m0 = m
     y = 0
     x = 1
-
     if m == 1:
         return 0
-
     while a > 1:
         q = a // m
         t = m
@@ -25,30 +23,24 @@ def find_mod_inverse(a, m):
         t = y
         y = x - q * y
         x = t
-
     if x < 0:
         x = x + m0
-
     return x
 
 
 def generate_keypair(p, q):
-    # Generate public and private keys
+    # Generate the public key and the private key
     n = p * q
     phi = (p - 1) * (q - 1)
-
     # Choose an integer e such that e and phi(n) are coprime
     e = random.randrange(1, phi)
-
     # Use Euclidean algorithm to verify that e and phi(n) are coprime
     g = gcd(e, phi)
     while g != 1:
         e = random.randrange(1, phi)
         g = gcd(e, phi)
-
     # Use Extended Euclidean algorithm to generate the private key
     d = find_mod_inverse(e, phi)
-
     # Return public and private keypair
     # Public key is (e, n) and private key is (d, n)
     return (e, n), (d, n)
@@ -70,7 +62,7 @@ def decrypt(pk, ciphertext):
 
 if __name__ == '__main__':
     print("RSA Encryption and Decryption")
-    p = int(input("Enter a prime number (17, 19, 23, etc): "))
+    p = int(input("Enter a prime number: "))
     q = int(input("Enter another prime number (Not one you entered above): "))
     print("Generating your public/private keypairs now . . .")
     public, private = generate_keypair(p, q)
@@ -78,7 +70,7 @@ if __name__ == '__main__':
     message = input("Enter a message to encrypt with your public key: ")
     encrypted_msg = encrypt(public, message)
     print("Your encrypted message is: ")
-    print(bin(int(''.join(map(lambda x: str(x), encrypted_msg)))))
+    print(encrypted_msg)
     print("Decrypting message with private key . . .")
     print("Your message is:")
     print(decrypt(private, encrypted_msg))
