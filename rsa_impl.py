@@ -1,32 +1,5 @@
-import random
+from utils import *
 from prime_generator import Generator
-
-
-def gcd(a, b):
-    # Euclidean algorithm for finding GCD
-    while b != 0:
-        a, b = b, a % b
-    return a
-
-
-def find_mod_inverse(a, m):
-    # Extended Euclidean algorithm for finding modular inverse
-    m0 = m
-    y = 0
-    x = 1
-    if m == 1:
-        return 0
-    while a > 1:
-        q = a // m
-        t = m
-        m = a % m
-        a = t
-        t = y
-        y = x - q * y
-        x = t
-    if x < 0:
-        x = x + m0
-    return x
 
 
 def generate_keypair(p, q):
