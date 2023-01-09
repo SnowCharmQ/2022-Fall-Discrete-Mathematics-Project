@@ -57,3 +57,12 @@ def is_prime(p, r=40):
         if not miller_rabin(p):
             return False
     return True
+
+
+def extended_euclidean(a, b):
+    if b == 0:
+        return 1, 0, a
+    else:
+        x, y, q = extended_euclidean(b, a % b)
+        x, y = y, x - (a // b) * y
+        return x, y, q
