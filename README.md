@@ -1,5 +1,7 @@
 # 2022-Fall-Discrete-Mathematics-Project
 
+This is the repository of the final project of SUSTech CS201 Discrete Mathematics in 2022 fall.
+
 #### rsa_impl.py: RSA Implementation including keys generation, encryption, and decryption.
 
 #### brute_force_attack.py: Attack RSA by the brute-force attack
